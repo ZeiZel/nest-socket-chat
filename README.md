@@ -5,4 +5,4 @@ Technologies:
 - EJS
 - PostgreSQL / Prisma ORM
 
-url: 
+url: https://chat-arlz.onrender.com/chat
