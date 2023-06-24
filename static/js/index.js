@@ -6,11 +6,11 @@ const msgInput = document.querySelector('.message-input'),
 const app = async () => {
 	const messages = [];
 
-	const socket = io('http://localhost:3000');
+	const socket = io('https://chat-arlz.onrender.com');
 
 	const getMessages = async () => {
 		try {
-			const { data } = await axios.get('http://localhost:3000/api/chat');
+			const { data } = await axios.get('https://chat-arlz.onrender.com/api/chat');
 
 			renderMessages(data);
 
