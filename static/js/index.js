@@ -12,7 +12,7 @@ const app = async () => {
 		try {
 			const { data } = await axios.get('http://localhost:3000/api/chat');
 
-			console.log(data);
+			renderMessages(data);
 
 			data.forEach((message) => messages.push(message));
 		} catch (e) {
@@ -21,6 +21,25 @@ const app = async () => {
 	};
 
 	getMessages();
+
+	const handleSendMessage = (text) => {
+		if (!text.trim()) return;
+
+		sendMessage({
+			username: usernameInput.value || 'Anonymous',
+			text,
+			createdAt: new Date(),
+		});
+
+		msgInput.value = '';
+	};
+
+	msgInput.addEventListener(
+		'keydown',
+		(e) => e.keyCode === 13 && handleSendMessage(e.target.value),
+	);
+
+	sendBtn.addEventListener('click', () => handleSendMessage(msgInput.value));
 
 	const renderMessages = (data) => {
 		let messages = '';
@@ -42,9 +61,16 @@ const app = async () => {
 			})}</span>
 		</li>`),
 		);
+
+		msgList.innerHTML = messages;
 	};
 
-	renderMessages(messages);
+	const sendMessage = (message) => socket.emit('sendMessage', message);
+
+	socket.on('recMessage', (message) => {
+		messages.push(message);
+		renderMessages(messages);
+	});
 };
 
 app();
