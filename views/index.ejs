@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport'
+          content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Chat</title>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@forevolve/bootstrap-dark@1.0.0/dist/css/bootstrap-dark.min.css" />
+    <link rel="stylesheet" href="css/index.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.0/socket.io.js"></script>
+    <script defer src='js/index.js'></script>
+</head>
+<body>
+<header>
+    <nav class='navbar navbar-dark bg-dark'>
+        <div class='container-fluid'><a class='navbar-brand'></a></div>
+    </nav>
+</header>
+<main>
+    <section>
+        <div class='container'>
+            <div class='mb-3 mt-3'>
+                <ul class='messages-list' style='list-style: none'></ul>
+            </div>
+            <div class='mb-3 mt-3'>
+                <input class='form-control username-input' placeholder='Ваше имя' />
+            </div>
+            <div class='mb-3 mt-3'>
+                <input class='form-control message-input' placeholder='Сообщение' />
+            </div>
+            <div class='mb-3 mt-3'>
+                <button class='btn btn-primary send-btn'>
+                    Отправить
+                </button>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>
